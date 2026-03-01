@@ -1,0 +1,26 @@
+age: Age of the patient.
+sex: Gender of the patient.
+cp: Chest pain type.
+trestbps: Resting blood pressure.
+chol: Serum cholesterol.
+fbs: Fasting blood sugar.
+restecg: Resting electrocardiographic results.
+thalach: Maximum heart rate achieved.
+exang: Exercise-induced angina.
+oldpeak: ST depression induced by exercise relative to rest.
+slope: The slope of the peak exercise ST segment.
+target: The target variable (likely indicating the presence or absence of heart disease)
+
+
+age: عمر المريض.
+sex: جنس المريض.
+cp: نوع ألم الصدر.
+trestbps: ضغط الدم أثناء الراحة.
+chol: الكوليسترول في الدم.
+fbs: سكر الدم الصائم.
+restecg: نتائج تخطيط القلب الكهربائي أثناء الراحة.
+thalach: أقصى معدل لضربات القلب المحقق.
+exang: الذبحة الصدرية المستحثة بالتمرين.
+oldpeak: انخفاض ST المستحث بالتمرين مقارنة بالراحة.
+slope: ميل قطعة ST خلال التمرين القصوى.
+target: المتغير الهدف (والذي يرجح أن يشير إلى وجود أو عدم وجود مرض قلبي).
