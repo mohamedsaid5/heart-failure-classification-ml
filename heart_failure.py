@@ -105,7 +105,7 @@ def remove_outliers(df, columns):
 
 
 if __name__ == '__main__':
-    file_path = "heart_failure.csv"
+    file_path = "heart_failure_enhanced.csv"
     df = load_csv(file_path)
     df = df.replace([np.inf, -np.inf], np.nan).dropna()
     
