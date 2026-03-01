@@ -36,7 +36,11 @@ The dataset (`heart_failure.csv`) contains the following features:
 
 ## 🎯 Features
 
-- **Data Preprocessing**: Handles missing values and outliers using IQR method
+- **Data Preprocessing**: 
+  - Removes duplicate rows
+  - Handles missing values (median imputation for numeric, mode for categorical)
+  - Removes outliers using IQR method
+  - Feature engineering: Creates age groups, blood pressure categories, cholesterol categories, heart rate zones, and risk levels
 - **Feature Encoding**: Converts categorical variables to numerical values
 - **Multiple Classifiers**: Implements KNN, Naive Bayes, Decision Tree, and Random Forest
 - **Performance Metrics**: Calculates accuracy, precision, recall, and confusion matrices
@@ -68,18 +72,39 @@ For graphviz visualization, you may need to install Graphviz on your system:
 
 ## 🚀 Usage
 
-### Running the Main Script
+### Step 1: Data Preprocessing
+
+First, run the preprocessing script to clean the data and create enhanced features:
+
+```bash
+python preprocessing_data.py
+```
+
+This script will:
+1. Load the original dataset (`heart_failure.csv`)
+2. Remove duplicate rows
+3. Handle missing values (fill numeric columns with median, categorical with mode)
+4. Create additional feature columns:
+   - Age Group (40-50, 51-60, 61-70, 71-80, 81-90)
+   - Blood Pressure Category (Normal, Elevated, Hypertension Stage 1/2)
+   - Cholesterol Category (Desirable, Borderline High, High)
+   - Heart Rate Zone (Below Average, Average, Above Average)
+   - Risk Level (Low, Moderate, High)
+5. Save the enhanced dataset to `heart_failure_enhanced.csv`
+
+### Step 2: Running the Main Script
 
 ```bash
 python heart_failure.py
 ```
 
 The script will:
-1. Load and preprocess the data
+1. Load the preprocessed data (`heart_failure_enhanced.csv`)
 2. Remove outliers from specified columns (age, thalach, trestbps)
-3. Split data into training (70%) and testing (30%) sets
-4. Train and evaluate all four classifiers
-5. Generate performance reports and visualizations
+3. Encode categorical features
+4. Split data into training (70%) and testing (30%) sets
+5. Train and evaluate all four classifiers
+6. Generate performance reports and visualizations
 
 ## 📈 Results
 
@@ -107,8 +132,10 @@ The Decision Tree model identifies the most important features for prediction:
 ```
 heart_failure/
 │
+├── preprocessing_data.py     # Data cleaning and feature engineering script
 ├── heart_failure.py          # Main script with all classifiers
-├── heart_failure.csv          # Dataset
+├── heart_failure.csv          # Original dataset
+├── heart_failure_enhanced.csv # Preprocessed dataset with additional features
 ├── datasetvariables.txt       # Feature descriptions
 ├── README.md                  # This file
 ├── .gitignore                 # Git ignore file
@@ -129,7 +156,9 @@ You can modify the following parameters in `heart_failure.py`:
 
 ## 📝 Notes
 
-- The script uses median imputation for missing values
+- **Preprocessing**: Run `preprocessing_data.py` first to clean the data and create enhanced features
+- The preprocessing script removes duplicates and handles missing values before feature engineering
+- The main script uses median imputation for any remaining missing values
 - Outliers are removed using the Interquartile Range (IQR) method
 - All categorical features are label-encoded
 - The decision tree visualization is saved as `Tree.png`
